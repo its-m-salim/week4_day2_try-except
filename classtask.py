@@ -78,10 +78,10 @@
 
 6
 
-class InsufficientFundsError(Exception):
-    def __init__(self, balance, amount):
-        message = f"requested {amount}, available {balance}."
-        super().__init__(message)
+# class InsufficientFundsError(Exception):
+#     def __init__(self, balance, amount):
+#         message = f"requested {amount}, available {balance}."
+#         super().__init__(message)
 
 
 # class BankAccount:
@@ -181,12 +181,14 @@ class InsufficientFundsError(Exception):
 # print(cart_total(cart))
 
 10
-# from datetime import datetime
+from datetime import datetime
 
 
-# def parse_date(text):
-#     return datetime.strptime(text, "%d.%m.%Y")
+def parse_date(text):
+    try:
+        return datetime.strptime(text, "%d.%m.%Y")
+    except ValueError:
+        print("Invalid date format!")
 
-
-# text = input()
-# print(parse_date(text).strftime("%Y-%m-%d"))
+text = input()
+print(parse_date(text).strftime("%Y-%m-%d"))
